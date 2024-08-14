@@ -9,7 +9,7 @@ import {
 function Home() {
   return (
     <div>
-      <section className='padding-t  padding-x'>
+      <section className='h-screen bg-black'>
         <Landing />
       </section>
       <section className='padding-t  padding-x'>

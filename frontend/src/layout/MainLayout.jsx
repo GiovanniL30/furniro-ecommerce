@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 const MainLayout = () => {
   return (
     <div>
-      <div className='padding-t padding-x'>
+      <div className='padding-x absolute top-0 bg-white left-0 right-0 z-50'>
         <Header />
       </div>
       <div>
