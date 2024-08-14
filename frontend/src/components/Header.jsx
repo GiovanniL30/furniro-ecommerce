@@ -14,7 +14,7 @@ const isActiveStyle = {
 
 const Header = () => {
   return (
-    <header className='py-[2.5rem] max-container flex w-full items-center'>
+    <header className='h-24 max-container flex w-full items-center'>
       <div>
         <img src={logo} alt='logo' />
       </div>
@@ -22,7 +22,7 @@ const Header = () => {
       <ul className='gap-14 hidden lg:flex md:mx-auto'>
         {navLinks.map((link) => {
           return (
-            <li>
+            <li key={link.link}>
               <NavLink
                 to={link.link}
                 style={({ isActive }) => (isActive ? isActiveStyle : {})}

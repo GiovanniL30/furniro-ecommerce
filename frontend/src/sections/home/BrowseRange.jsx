@@ -33,7 +33,7 @@ const BrowseRange = () => {
 
       <div className='w-full flex gap-10 flex-wrap lg:flex-nowrap justify-center lg:justify-between'>
         {items.map((item) => (
-          <ItemCard name={item.name} img={item.img} />
+          <ItemCard key={item.name} name={item.name} img={item.img} />
         ))}
       </div>
     </div>

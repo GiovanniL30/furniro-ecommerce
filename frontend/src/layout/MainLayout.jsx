@@ -9,7 +9,7 @@ const MainLayout = () => {
       <div className='padding-x absolute top-0 bg-white left-0 right-0 z-50'>
         <Header />
       </div>
-      <div>
+      <div className='pt-24'>
         <Outlet />
       </div>
       <div className='padding-x padding-t'>
