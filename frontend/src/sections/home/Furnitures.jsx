@@ -10,9 +10,9 @@ const Furnitures = () => {
         </p>
         <h1 className='font-bold text-4xl text-font_color'>#FuniroFurniture</h1>
       </div>
-      <div className='w-full lg:-mt-10 overflow-hidden'>
+      <div className='w-full lg:-mt-10 overflow-hidden flex justify-center'>
         <img
-          className='object-contain w-full scale-[150%] lg:scale-100'
+          className='object-contain w-full scale-[150%] lg:scale-100 max-w-[2000px]'
           src={image}
           alt='furnitures'
         />

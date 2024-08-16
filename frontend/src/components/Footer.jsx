@@ -47,7 +47,7 @@ function Footer() {
           </div>
         </footer>
         <hr />
-        <h1 className='mb-10 text-font_color lg:text-lg text-center lg:text-left font-semibold'>
+        <h1 className='mb-10 text-font_color  text-center  font-semibold'>
           2023 funiro. All rights reserved
         </h1>
       </div>
