@@ -9,11 +9,14 @@ const MainLayout = () => {
       <div className='padding-x absolute top-0 bg-white left-0 right-0 z-50'>
         <Header />
       </div>
-      <div className='pt-24'>
+      <div className='pt-24 min-h-screen'>
         <Outlet />
       </div>
-      <div className='padding-x padding-t'>
-        <Footer />
+      <div className='padding-t'>
+        <hr />
+        <div className='padding-x padding-t'>
+          <Footer />
+        </div>
       </div>
     </div>
   )

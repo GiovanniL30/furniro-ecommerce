@@ -22,7 +22,7 @@ function Home() {
       <section className='bg-primary_2  bg-opacity-40 mt-20  padding-t'>
         <Inspiration />
       </section>
-      <section className='padding-t '>
+      <section>
         <Furnitures />
       </section>
     </div>
