@@ -8,6 +8,7 @@ import {
 
 import { Cart, Checkout, About, Contact, Home, Shop } from './pages/index.js'
 import MainLayout from './layout/MainLayout'
+import ProductDetail from './layout/ProductDetail.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +19,11 @@ const router = createBrowserRouter(
       <Route path='shop' element={<Shop />} />
       <Route path='checkout' element={<Checkout />} />
       <Route path='cart' element={<Cart />} />
+      <Route path='shop/:id' element={<ProductDetail />}>
+        <Route index element={<h1>Description goes here</h1>}></Route>
+        <Route path='information' element={<h1>Information here</h1>} />
+        <Route path='reviews' element={<h1>Reviews here</h1>} />
+      </Route>
     </Route>
   )
 )

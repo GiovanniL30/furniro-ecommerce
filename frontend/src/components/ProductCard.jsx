@@ -2,7 +2,7 @@ import React from 'react'
 import share from '../assets/share-icon.png'
 import compare from '../assets/compare-icon.png'
 import like from '../assets/like-icon.png'
-import { computeDiscount } from '../utils/money'
+import { computeDiscount } from '../utils'
 
 const ProductCard = ({ name, details, price, discount, isNew, image }) => {
   return (

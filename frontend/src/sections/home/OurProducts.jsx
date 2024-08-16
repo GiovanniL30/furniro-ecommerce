@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../../components/ProductCard'
+import { getProducts as getProductsFromServer } from '../../../server'
 
 const OurProducts = () => {
   const [products, setProducts] = useState([])
@@ -12,16 +13,8 @@ const OurProducts = () => {
       isError(false)
 
       try {
-        const response = await fetch('http://localhost:1099/api/products', {
-          method: 'GET',
-        })
-
-        if (response.ok) {
-          const data = await response.json()
-          setProducts(data)
-        } else {
-          isError(true)
-        }
+        const products = await getProductsFromServer()
+        setProducts(products)
       } catch (error) {
         isError(true)
       } finally {
@@ -50,6 +43,7 @@ const OurProducts = () => {
           <div className='grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 lg:grid-cols-4 mt-10'>
             {products.map((product) => (
               <ProductCard
+                key={product.id}
                 name={product.name}
                 details={product.details}
                 price={product.price}
