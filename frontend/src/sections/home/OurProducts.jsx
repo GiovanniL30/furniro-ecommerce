@@ -55,15 +55,7 @@ const OurProducts = () => {
                 price={product.price}
                 discount={product.discount}
                 isNew={product.isNew}
-              />
-            ))}
-            {products.map((product) => (
-              <ProductCard
-                name={product.name}
-                details={product.details}
-                price={product.price}
-                discount={product.discount}
-                isNew={product.isNew}
+                image={product.image}
               />
             ))}
           </div>

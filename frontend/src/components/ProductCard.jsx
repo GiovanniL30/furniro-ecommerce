@@ -2,10 +2,9 @@ import React from 'react'
 import share from '../assets/share-icon.png'
 import compare from '../assets/compare-icon.png'
 import like from '../assets/like-icon.png'
-import image from '../assets/product-img.png'
 import { computeDiscount } from '../utils/money'
 
-const ProductCard = ({ name, details, price, discount, isNew }) => {
+const ProductCard = ({ name, details, price, discount, isNew, image }) => {
   return (
     <div className='relative overflow-hidden flex flex-col w-full group bg-grey_2 rounded-md bg-opacity-10'>
       <div className='group-hover:translate-y-0 translate-y-[102%]  bg-opacity-80 bg-grey_3 absolute w-full h-full flex gap-5 items-center justify-center flex-col top-0 bottom-0 duration-300 ease-linear'>

@@ -4,6 +4,7 @@ import {
   Inspiration,
   Landing,
   OurProducts,
+  Furnitures,
 } from '../sections/home/index.js'
 
 function Home() {
@@ -18,8 +19,11 @@ function Home() {
       <section className='padding-t  padding-x'>
         <OurProducts />
       </section>
-      <section className='padding-t  padding-x'>
+      <section className='bg-primary_2  bg-opacity-40 mt-20  padding-t'>
         <Inspiration />
+      </section>
+      <section className='padding-t '>
+        <Furnitures />
       </section>
     </div>
   )

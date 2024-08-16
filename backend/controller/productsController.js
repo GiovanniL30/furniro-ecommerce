@@ -1,3 +1,5 @@
+const PORT = process.env.PORT || 1099
+
 const products = [
   {
     name: 'Syltherine',
@@ -5,6 +7,7 @@ const products = [
     price: 2500000,
     discount: 30,
     isNew: false,
+    image: `http://localhost:${PORT}/api/images/syltherine-img.png`,
     id: 1,
   },
   {
@@ -13,6 +16,7 @@ const products = [
     price: 2500000,
     discount: 0,
     isNew: false,
+    image: `http://localhost:${PORT}/api/images/leviosa-img.png`,
     id: 2,
   },
   {
@@ -21,6 +25,7 @@ const products = [
     price: 7000000,
     discount: 50,
     isNew: false,
+    image: `http://localhost:${PORT}/api/images/lolito-img.png`,
     id: 3,
   },
   {
@@ -29,7 +34,44 @@ const products = [
     price: 500,
     discount: 0,
     isNew: true,
+    image: `http://localhost:${PORT}/api/images/respira-img.png`,
     id: 4,
+  },
+  {
+    name: 'Grifo',
+    details: 'Night lamp',
+    price: 1500,
+    discount: 0,
+    isNew: false,
+    image: `http://localhost:${PORT}/api/images/grifo-img.png`,
+    id: 5,
+  },
+  {
+    name: 'Muggo',
+    details: 'Small mug',
+    price: 150,
+    discount: 0,
+    isNew: true,
+    image: `http://localhost:${PORT}/api/images/muggo-img.png`,
+    id: 6,
+  },
+  {
+    name: 'Pingky',
+    details: 'Cute bed set',
+    price: 7000000,
+    discount: 50,
+    isNew: false,
+    image: `http://localhost:${PORT}/api/images/pingky-img.png`,
+    id: 7,
+  },
+  {
+    name: 'Potty',
+    details: 'Minimalist flower pot',
+    price: 500000,
+    discount: 0,
+    isNew: true,
+    image: `http://localhost:${PORT}/api/images/potty-img.png`,
+    id: 8,
   },
 ]
 
