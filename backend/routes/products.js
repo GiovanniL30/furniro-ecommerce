@@ -10,10 +10,10 @@ const productRouter = express.Router()
 // Get all products
 productRouter.get('/', getProducts)
 
-//Get product
-productRouter.get('/:id', getProduct)
-
 //Get products with pagination
 productRouter.get('/pagination', paginationProducts)
+
+//Get product
+productRouter.get('/:id', getProduct)
 
 export default productRouter

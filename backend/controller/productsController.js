@@ -197,14 +197,20 @@ export const getProducts = (req, res, next) => {
 //@desc Paginated Products
 //@route GET /api/products/pagination
 export const paginationProducts = (req, res, next) => {
-  const { page, length } = req.params
+  const { page, length } = req.query
+
+  if (!page || !length || isNaN(page) || isNaN(length)) {
+    return res
+      .status(400)
+      .json({ message: 'Please provide page number and the length' })
+  }
 
   const startIndex = (page - 1) * length
   const endIndex = page * length
 
   const paginationProducts = products.slice(startIndex, endIndex)
 
-  const totalPages = Math.ceil(products.length, length)
+  const totalPages = Math.ceil(products.length / length)
 
   res.status(200).json({ products: paginationProducts, totalPages: totalPages })
 }
