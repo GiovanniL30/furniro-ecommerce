@@ -13,7 +13,9 @@ const OurProducts = () => {
       isError(false)
 
       try {
-        const products = await getProductsFromServer()
+        const products = await getProductsFromServer(
+          'http://localhost:1099/api/products'
+        )
         setProducts(products.products)
       } catch (error) {
         isError(true)

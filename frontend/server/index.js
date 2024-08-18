@@ -1,23 +1,4 @@
-export const getProducts = async () => {
-  try {
-    const response = await fetch('http://localhost:1099/api/products', {
-      method: 'GET',
-    })
-
-    if (response.ok) {
-      const data = await response.json()
-      return data
-    } else {
-      throw new Error('Error fetching data')
-    }
-  } catch (error) {
-    throw new Error('Error fetching data')
-  }
-}
-
-export const getPaginatedProducts = async (page, limit) => {
-  const url = `http://localhost:1099/api/products?page=${page}&limit=${limit}`
-
+export const getProducts = async (url) => {
   try {
     const response = await fetch(url, {
       method: 'GET',
@@ -32,26 +13,6 @@ export const getPaginatedProducts = async (page, limit) => {
     }
   } catch (error) {
     throw new Error(`Error fetching data: ${error.message}`)
-  }
-}
-
-export const getFilteredProducts = async (tags) => {
-  tags = tags.reduce((final, cur) => final + cur + ',', '').slice(0, -1)
-  const url = `http://localhost:1099/api/products?tag=${tags}`
-
-  try {
-    const response = await fetch(url, {
-      method: 'GET',
-    })
-
-    if (response.ok) {
-      const data = await response.json()
-      return data
-    } else {
-      throw new Error('Error fetching data')
-    }
-  } catch (error) {
-    throw new Error('Error fetching data')
   }
 }
 
