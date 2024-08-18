@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ProductsGrid from '../../components/ProductsGrid.jsx'
 import ProductCard from '../../components/ProductCard.jsx'
 
@@ -9,6 +9,9 @@ const ShopProducts = ({
   currentPage,
   setCurrentPage,
 }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [currentPage])
   if (isError) {
     return (
       <div className='max-container'>
@@ -55,14 +58,17 @@ const ShopProducts = ({
               {index + 1}
             </div>
           ))}
-          <button
-            className='hover:opacity-50 duration-500 ease-linear text-black bg-primary_2  px-5 flex items-center justify-center rounded-md'
-            onClick={() =>
-              setCurrentPage((prev) => (prev >= totalPages ? 1 : prev + 1))
-            }
-          >
-            Next
-          </button>
+
+          {totalPages != 1 && (
+            <button
+              className='hover:opacity-50 duration-500 ease-linear text-black bg-primary_2  px-5 flex items-center justify-center rounded-md'
+              onClick={() =>
+                setCurrentPage((prev) => (prev >= totalPages ? 1 : prev + 1))
+              }
+            >
+              Next
+            </button>
+          )}
         </div>
       )}
     </div>
