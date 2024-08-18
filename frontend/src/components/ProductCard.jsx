@@ -2,13 +2,21 @@ import React from 'react'
 import share from '../assets/share-icon.png'
 import compare from '../assets/compare-icon.png'
 import like from '../assets/like-icon.png'
+import { NavLink } from 'react-router-dom'
 import { computeDiscount } from '../utils'
 
-const ProductCard = ({ name, details, price, discount, isNew, image }) => {
+const ProductCard = ({ name, details, price, discount, isNew, image, id }) => {
   return (
     <div className='relative overflow-hidden flex flex-col w-full group bg-grey_2 rounded-md bg-opacity-10'>
       <div className='group-hover:translate-y-0 translate-y-[102%]  bg-opacity-80 bg-grey_3 absolute w-full h-full flex gap-5 items-center justify-center flex-col top-0 bottom-0 duration-300 ease-linear'>
-        <button className='font-bold bg-white text-primary_1 rounded-sm w-3/4 py-2 hover:opacity-50 duration-300 ease-linear'>
+        <NavLink
+          to={`shop/${id}`}
+          className='font-bold text-center text-white bg-primary_1 rounded-sm w-3/4 py-2 hover:opacity-50 duration-300 ease-linear'
+        >
+          Open
+        </NavLink>
+
+        <button className='font-bold bg-transparent  text-white border-white border-[1px] rounded-sm w-3/4 py-2 hover:opacity-50 duration-300 ease-linear'>
           Add to Cart
         </button>
         <div className='flex flex-col xl:flex-row gap-5 items-center text-white font-semibold'>

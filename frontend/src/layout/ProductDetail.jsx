@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { getProduct } from '../../server'
-import { useParams } from 'react-router-dom'
-import { Outlet } from 'react-router-dom'
+import { useParams, NavLink } from 'react-router-dom'
+
 import ProductInfo from '../sections/productDetail/ProductInfo'
 import ProductAdditionalInfo from '../sections/productDetail/ProductAdditionalInfo'
 import RelatedProducts from '../sections/productDetail/RelatedProducts'
 
 const ProductDetail = () => {
   const { id } = useParams()
+
   const [product, setProduct] = useState({})
   const [isFethcing, setIsFetching] = useState(false)
   const [totalReviews, setTotalReviews] = useState(0)
@@ -59,6 +60,7 @@ const ProductDetail = () => {
     <main>
       <header className='w-full bg-primary_2 h-20 padding-x'>
         <div className='h-full max-container  flex items-center gap-x-3'>
+          <NavLink to={'.'}>back</NavLink>
           <p className='text-grey_2 font-semibold text-sm'>Home</p>
           <p className='font-bold text-font_color text-xl'>{'>'}</p>
           <p className='text-grey_2 font-semibold text-sm'>Shop</p>

@@ -14,7 +14,7 @@ const OurProducts = () => {
 
       try {
         const products = await getProductsFromServer()
-        setProducts(products)
+        setProducts(products.products)
       } catch (error) {
         isError(true)
       } finally {
@@ -50,6 +50,7 @@ const OurProducts = () => {
                 discount={product.discount}
                 isNew={product.isNew}
                 image={product.image}
+                id={product.id}
               />
             ))}
           </div>
