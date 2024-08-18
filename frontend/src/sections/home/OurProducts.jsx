@@ -1,49 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import ProductCard from '../../components/ProductCard'
-import { getProducts as getProductsFromServer } from '../../../server'
+import useFetch from '../../hooks/useFetch.js'
 
 const OurProducts = () => {
-  const [products, setProducts] = useState([])
-  const [fetching, isFetching] = useState(true)
-  const [error, isError] = useState(false)
-
-  useEffect(() => {
-    async function getProducts() {
-      isFetching(true)
-      isError(false)
-
-      try {
-        const products = await getProductsFromServer(
-          'http://localhost:1099/api/products'
-        )
-        setProducts(products.products)
-      } catch (error) {
-        isError(true)
-      } finally {
-        isFetching(false)
-      }
-    }
-
-    getProducts()
-  }, [])
+  const { isError, isFetching, data } = useFetch(
+    'http://localhost:1099/api/products'
+  )
 
   return (
     <div className='max-container'>
-      {error ? (
+      {isError ? (
         <h1 className='text-center font-bold text-font_color text-3xl'>
           Error Loading Products
         </h1>
-      ) : fetching ? (
+      ) : isFetching ? (
         <h1 className='text-center font-bold text-font_color text-3xl'>
           Loading Products
         </h1>
-      ) : (
+      ) : data && data.products ? (
         <div className='flex flex-col'>
           <h1 className='text-center font-bold text-font_color text-3xl'>
             Our Products
           </h1>
           <div className='grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 lg:grid-cols-4 mt-10'>
-            {products.map((product) => (
+            {data.products.map((product) => (
               <ProductCard
                 key={product.id}
                 name={product.name}
@@ -60,6 +40,10 @@ const OurProducts = () => {
             Show More
           </button>
         </div>
+      ) : (
+        <h1 className='text-center font-bold text-font_color text-3xl'>
+          No Products Available
+        </h1>
       )}
     </div>
   )
