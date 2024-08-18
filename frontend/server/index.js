@@ -15,8 +15,8 @@ export const getProducts = async () => {
   }
 }
 
-export const getPaginatedProducts = async (page, length) => {
-  const url = `http://localhost:1099/api/products/pagination?page=${page}&length=${length}`
+export const getPaginatedProducts = async (page, limit) => {
+  const url = `http://localhost:1099/api/products?page=${page}&limit=${limit}`
 
   try {
     const response = await fetch(url, {
@@ -35,11 +35,9 @@ export const getPaginatedProducts = async (page, length) => {
   }
 }
 
-getPaginatedProducts(1, 5).then((data) => console.log(data))
-
-export const getFilteredProducts = async (limit, tags) => {
+export const getFilteredProducts = async (tags) => {
   tags = tags.reduce((final, cur) => final + cur + ',', '').slice(0, -1)
-  const url = `http://localhost:1099/api/products?tag=${tags}&limit=${limit}`
+  const url = `http://localhost:1099/api/products?tag=${tags}`
 
   try {
     const response = await fetch(url, {

@@ -174,9 +174,15 @@ const products = [
 // @desc   Get all products
 // @route  GET /api/products
 export const getProducts = (req, res, next) => {
-  const { limit, tag } = req.query
+  const { limit = products.length, tag, page = 1 } = req.query
 
-  let filteredProducts = products
+  const startIndex = (page - 1) * limit
+  const endIndex = page * limit
+
+  const paginationProducts = products.slice(startIndex, endIndex)
+  const totalPages = Math.ceil(products.length / limit)
+
+  let filteredProducts = paginationProducts
 
   if (tag && tag != ' ') {
     const tagsArray = tag.split(',')
@@ -185,34 +191,7 @@ export const getProducts = (req, res, next) => {
     )
   }
 
-  if (limit) {
-    const length =
-      limit && limit > 0 ? Math.min(limit, products.length) : products.length
-    filteredProducts = filteredProducts.slice(0, length)
-  }
-
-  res.status(200).json(filteredProducts)
-}
-
-//@desc Paginated Products
-//@route GET /api/products/pagination
-export const paginationProducts = (req, res, next) => {
-  const { page, length } = req.query
-
-  if (!page || !length || isNaN(page) || isNaN(length)) {
-    return res
-      .status(400)
-      .json({ message: 'Please provide page number and the length' })
-  }
-
-  const startIndex = (page - 1) * length
-  const endIndex = page * length
-
-  const paginationProducts = products.slice(startIndex, endIndex)
-
-  const totalPages = Math.ceil(products.length / length)
-
-  res.status(200).json({ products: paginationProducts, totalPages: totalPages })
+  res.status(200).json({ products: filteredProducts, totalPages: totalPages })
 }
 
 // @desc   Get a single product
