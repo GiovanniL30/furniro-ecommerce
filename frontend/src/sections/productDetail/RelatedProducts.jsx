@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import useFetch from '../../hooks/useFetch'
 import ProductCard from '../../components/ProductCard'
+import ProductsGrid from '../../components/ProductsGrid'
 
 const RelatedProducts = ({ tags, id }) => {
   tags = tags.reduce((final, cur) => final + cur + ',', '').slice(0, -1)
@@ -16,7 +17,7 @@ const RelatedProducts = ({ tags, id }) => {
           Related Products
         </h1>
       )}
-      <div className='grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 lg:grid-cols-4 mt-10'>
+      <ProductsGrid>
         {data &&
           data.products.map((product) =>
             id != product.id ? (
@@ -34,7 +35,7 @@ const RelatedProducts = ({ tags, id }) => {
               ''
             )
           )}
-      </div>
+      </ProductsGrid>
     </div>
   )
 }

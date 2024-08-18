@@ -1,10 +1,11 @@
 import React from 'react'
 import ProductCard from '../../components/ProductCard'
 import useFetch from '../../hooks/useFetch.js'
+import ProductsGrid from '../../components/ProductsGrid.jsx'
 
 const OurProducts = () => {
   const { isError, isFetching, data } = useFetch(
-    'http://localhost:1099/api/products'
+    'http://localhost:1099/api/products?limit=8'
   )
 
   if (isError) {
@@ -30,7 +31,7 @@ const OurProducts = () => {
           <h1 className='text-center font-bold text-font_color text-3xl'>
             Our Products
           </h1>
-          <div className='grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-3 lg:grid-cols-4 mt-10'>
+          <ProductsGrid>
             {data.products.map((product) => (
               <ProductCard
                 key={product.id}
@@ -43,7 +44,7 @@ const OurProducts = () => {
                 id={product.id}
               />
             ))}
-          </div>
+          </ProductsGrid>
           <button className=' self-center mt-12 border-primary_1 text-primary_1 rounded-sm w-full lg:w-52 py-2 border-[1px] hover:opacity-50 duration-300 ease-linear'>
             Show More
           </button>
