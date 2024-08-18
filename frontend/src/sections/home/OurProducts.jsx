@@ -7,17 +7,25 @@ const OurProducts = () => {
     'http://localhost:1099/api/products'
   )
 
-  return (
-    <div className='max-container'>
-      {isError ? (
+  if (isError) {
+    return (
+      <div className='max-container'>
         <h1 className='text-center font-bold text-font_color text-3xl'>
           Error Loading Products
         </h1>
-      ) : isFetching ? (
+      </div>
+    )
+  }
+
+  return (
+    <div className='max-container'>
+      {isFetching && (
         <h1 className='text-center font-bold text-font_color text-3xl'>
           Loading Products
         </h1>
-      ) : data && data.products ? (
+      )}
+
+      {data && data.products && (
         <div className='flex flex-col'>
           <h1 className='text-center font-bold text-font_color text-3xl'>
             Our Products
@@ -40,7 +48,9 @@ const OurProducts = () => {
             Show More
           </button>
         </div>
-      ) : (
+      )}
+
+      {data && data.products && data.products.length == 0 && (
         <h1 className='text-center font-bold text-font_color text-3xl'>
           No Products Available
         </h1>
