@@ -17,7 +17,7 @@ const products = [
       { name: 'Bob', rating: 4, comment: 'Good value for money.' },
       { name: 'Charlie', rating: 4, comment: 'Looks great in my cafe!' },
     ],
-    tags: ['cafe', 'chair', 'modern', 'stylish', 'commercial use'],
+    tags: ['cafe', 'chair', 'modern', 'stylish', 'commercial-use'],
     id: 1,
   },
   {
@@ -36,7 +36,7 @@ const products = [
       { name: 'Eve', rating: 4, comment: 'Stylish and comfortable.' },
       { name: 'Frank', rating: 4, comment: 'Highly recommended!' },
     ],
-    tags: ['cafe', 'chair', 'modern', 'ergonomic', 'home use'],
+    tags: ['cafe', 'chair', 'modern', 'ergonomic', 'home-use'],
     id: 2,
   },
   {
@@ -101,7 +101,7 @@ const products = [
         comment: 'Highly recommended for bedrooms.',
       },
     ],
-    tags: ['lamp', 'night', 'bedroom', 'ambient lighting', 'modern'],
+    tags: ['lamp', 'night', 'bedroom', 'ambient-lighting', 'modern'],
     id: 5,
   },
   {
@@ -143,7 +143,7 @@ const products = [
       { name: 'Tina', rating: 4, comment: 'Very comfortable and cute.' },
       { name: 'Uma', rating: 4, comment: 'Great quality and design.' },
     ],
-    tags: ['bed set', 'cute', 'kids', 'playful', 'comfortable'],
+    tags: ['bed-set', 'cute', 'kids', 'playful', 'comfortable'],
     id: 7,
   },
   {
@@ -187,7 +187,7 @@ export const getProducts = (req, res, next) => {
   if (tag && tag != ' ') {
     const tagsArray = tag.split(',')
     filteredProducts = filteredProducts.filter((p) =>
-      tagsArray.every((t) => p.tags.includes(t))
+      tagsArray.some((t) => p.tags.includes(t))
     )
   }
 

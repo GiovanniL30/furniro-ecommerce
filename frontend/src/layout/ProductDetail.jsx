@@ -16,6 +16,10 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [id])
+
+  useEffect(() => {
     if (data && data.reviews) {
       setTotalReviews(data.reviews.length)
       const totalRating = data.reviews.reduce(
@@ -77,7 +81,7 @@ const ProductDetail = () => {
         <ProductAdditionalInfo product={data} totalReviews={totalReviews} />
       </section>
       <section className='padding-x'>
-        <RelatedProducts tags={data.tags} />
+        <RelatedProducts tags={data.tags} id={id} />
       </section>
     </main>
   )
