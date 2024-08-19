@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   BrowseRange,
-  Inspiration,
   Landing,
   OurProducts,
   Furnitures,
@@ -19,9 +18,7 @@ function Home() {
       <section className='padding-t  padding-x'>
         <OurProducts />
       </section>
-      <section className='bg-primary_2  bg-opacity-40 mt-20  padding-t'>
-        <Inspiration />
-      </section>
+      <hr className='my-20' />
       <section>
         <Furnitures />
       </section>

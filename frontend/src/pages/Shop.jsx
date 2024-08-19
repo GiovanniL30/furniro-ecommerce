@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import Banner from '../components/Banner.jsx'
 import FilterSection from '../sections/shop/FilterSection.jsx'
 import ShopProducts from '../sections/shop/ShopProducts.jsx'

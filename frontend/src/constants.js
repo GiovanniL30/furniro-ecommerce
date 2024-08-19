@@ -7,12 +7,4 @@ export const navLinks = [
     name: 'Shop',
     link: 'shop',
   },
-  {
-    name: 'About',
-    link: 'about',
-  },
-  {
-    name: 'Contact',
-    link: 'contact',
-  },
 ]

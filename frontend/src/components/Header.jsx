@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../assets/logo.png'
 import cart from '../assets/cart-icon.png'
 import heart from '../assets/heart-icon.png'
 import account from '../assets/account-icon.png'
 import search from '../assets/search-icon.png'
+import hamburger from '../assets/hamburger.png'
 import { navLinks } from '../constants'
 
 import { NavLink } from 'react-router-dom'
@@ -13,13 +14,23 @@ const isActiveStyle = {
 }
 
 const Header = () => {
+  const [open, setOpen] = useState(false)
+
   return (
     <header className='h-24 max-container flex w-full items-center'>
       <div>
         <img src={logo} alt='logo' />
       </div>
 
-      <ul className='gap-14 hidden lg:flex md:mx-auto'>
+      <div className={`w-6 ml-auto cursor-pointer lg:hidden`}>
+        <img
+          className='w-full object-contain'
+          src={hamburger}
+          alt='hamburger'
+        />
+      </div>
+
+      <ul className='hidden lg:flex gap-10 items-center ml-auto'>
         {navLinks.map((link) => {
           return (
             <li key={link.link}>
@@ -32,18 +43,6 @@ const Header = () => {
             </li>
           )
         })}
-      </ul>
-
-      <ul className='gap-10 hidden lg:flex items-center'>
-        <li>
-          <IconButton image={account} />
-        </li>
-        <li>
-          <IconButton image={search} />
-        </li>
-        <li>
-          <IconButton image={heart} />
-        </li>
         <li>
           <IconButton image={cart} link='cart' isLink={true} />
         </li>
