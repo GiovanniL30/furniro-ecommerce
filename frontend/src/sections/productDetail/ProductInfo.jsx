@@ -1,6 +1,7 @@
 import React from 'react'
 import Stars from '../../components/Stars'
 import { computeDiscount } from '../../utils/index.js'
+import { useCartContext } from '../../context/CartContext.jsx'
 
 const ProductInfo = ({
   product,
@@ -8,7 +9,9 @@ const ProductInfo = ({
   totalReviews,
   quantity,
   setQuantity,
+  id,
 }) => {
+  const { dispatch, ACTIONS } = useCartContext()
   return (
     <div className='max-container  mt-7'>
       <section className='flex flex-col md:flex-row md:gap-10'>
@@ -58,7 +61,15 @@ const ProductInfo = ({
                 +
               </button>
             </div>
-            <button className='w-1/2 border-[1px] border-black rounded-md'>
+            <button
+              onClick={() =>
+                dispatch({
+                  type: ACTIONS.ADD_T0_CART,
+                  payload: { id: id, quantity: quantity },
+                })
+              }
+              className='w-1/2 border-[1px] border-black rounded-md'
+            >
               Add To Cart
             </button>
           </div>

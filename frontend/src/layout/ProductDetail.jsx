@@ -74,6 +74,7 @@ const ProductDetail = () => {
           totalReviews={totalReviews}
           setQuantity={setQuantity}
           quantity={quantity}
+          id={id}
         />
       </section>
       <hr className='mt-6' />
