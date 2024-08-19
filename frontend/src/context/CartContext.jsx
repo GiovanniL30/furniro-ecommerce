@@ -48,7 +48,9 @@ const reducerFunction = (state, action) => {
     }
 
     case ACTIONS.REMOVE_TO_CART: {
-      return state
+      const { id } = action.payload
+
+      return state.filter((product) => product.getId() != id)
     }
 
     default:

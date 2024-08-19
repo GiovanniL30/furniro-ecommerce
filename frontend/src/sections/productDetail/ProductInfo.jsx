@@ -62,12 +62,13 @@ const ProductInfo = ({
               </button>
             </div>
             <button
-              onClick={() =>
+              onClick={() => {
                 dispatch({
                   type: ACTIONS.ADD_T0_CART,
                   payload: { id: id, quantity: quantity },
                 })
-              }
+                setQuantity(1)
+              }}
               className='w-1/2 border-[1px] border-black rounded-md'
             >
               Add To Cart
