@@ -9,7 +9,7 @@ import {
 
 function Home() {
   return (
-    <div>
+    <div className='mb-32'>
       <section className='h-screen bg-black'>
         <Landing />
       </section>

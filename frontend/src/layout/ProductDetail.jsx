@@ -55,7 +55,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <main>
+    <main className='mb-32'>
       <header className='w-full bg-primary_2 h-20 padding-x'>
         <div className='h-full max-container flex items-center gap-x-3'>
           <p className='text-grey_2 font-semibold text-sm'>Home</p>

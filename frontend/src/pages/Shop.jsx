@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Banner from '../components/Banner.jsx'
 import FilterSection from '../sections/shop/FilterSection.jsx'
 import ShopProducts from '../sections/shop/ShopProducts.jsx'
+import FooterBanner from '../components/FooterBanner.jsx'
 import useFetch from '../hooks/useFetch.js'
 
 const Shop = () => {
@@ -38,6 +39,9 @@ const Shop = () => {
             isFetching={isFetching}
             data={data}
           />
+        </section>
+        <section className='bg-primary_2 mt-20 padding-x'>
+          <FooterBanner />
         </section>
       </div>
     </>

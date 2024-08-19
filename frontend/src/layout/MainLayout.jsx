@@ -12,11 +12,9 @@ const MainLayout = () => {
       <div className='pt-24 min-h-screen'>
         <Outlet />
       </div>
-      <div className='padding-t'>
-        <hr />
-        <div className='padding-x padding-t'>
-          <Footer />
-        </div>
+      <hr />
+      <div className='padding-x padding-t'>
+        <Footer />
       </div>
     </div>
   )
