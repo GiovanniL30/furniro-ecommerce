@@ -47,7 +47,7 @@ const ShopProducts = ({
         ))}
       </ProductsGrid>
       {data && (
-        <div className='flex justify-center gap-5 mt-10'>
+        <div className='flex justify-center gap-5 mt-10 flex-wrap'>
           {Array.from({ length: totalPages }, (_, index) => (
             <div
               key={index + 1}

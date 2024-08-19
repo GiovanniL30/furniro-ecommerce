@@ -6,9 +6,10 @@ import useFetch from '../hooks/useFetch.js'
 
 const Shop = () => {
   const [currentPage, setCurrentPage] = useState(1)
+  const [limit, setLimit] = useState(8)
 
   const { isError, isFetching, data } = useFetch(
-    `http://localhost:1099/api/products?page=${currentPage}&limit=16`
+    `http://localhost:1099/api/products?page=${currentPage}&limit=${limit}`
   )
 
   return (
@@ -18,8 +19,16 @@ const Shop = () => {
       </section>
 
       <div>
-        <section className='padding-x'>
-          <FilterSection />
+        <section className='padding-x w-full min-h-20 bg-primary_2 py-3'>
+          {data && (
+            <FilterSection
+              totalProductsLength={data.totalProducts * data.totalPages}
+              currentPage={currentPage}
+              resultSize={data.products.length}
+              limit={limit}
+              setLimit={setLimit}
+            />
+          )}
         </section>
         <section className='padding-x'>
           <ShopProducts
