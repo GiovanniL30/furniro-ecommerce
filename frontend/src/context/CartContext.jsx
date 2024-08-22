@@ -38,7 +38,7 @@ const reducerFunction = (state, action) => {
           : product
       )
 
-      const productExists = state.some((product) => product.getId() === id)
+      const productExists = state.some((product) => product.getId() == id)
 
       if (!productExists) {
         updatedCart.push(new CartProduct(id, quantity))
